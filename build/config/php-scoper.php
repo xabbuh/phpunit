@@ -7,12 +7,13 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+$publicSymbols = json_decode(file_get_contents(__DIR__ . '/../tmp/public-symbols.json'), true);
+
 return [
     'prefix' => 'PHPUnitPHAR',
 
-    'exclude-namespaces' => [
-        'PHPUnit',
-    ],
+    'exclude-classes' => $publicSymbols['classLikes'],
+    'exclude-functions' => $publicSymbols['functions'],
 
     'expose-constants' => [
         '/^__PHPUNIT_.+$/'

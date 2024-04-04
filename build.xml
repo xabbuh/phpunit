@@ -300,6 +300,8 @@
             <arg value="${type}"/>
         </exec>
 
+        <exec executable="${basedir}/build/scripts/export-public-symbols.php" taskname="export-public-symbols" failonerror="true"/>
+
         <exec executable="${basedir}/tools/php-scoper" taskname="php-scoper">
             <arg value="add-prefix" />
             <arg value="--no-ansi" />
